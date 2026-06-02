@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #8b5cf6;
+  --color-background: #0a0a0a;
+  --color-surface: #171717;
+  --color-surfaceHover: #262626;
+
+  --font-heading: "Syne", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-gray-200 font-sans antialiased overflow-x-hidden;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* GitHub Calendar Clean Mode */
+.github-calendar-clean footer,
+.github-calendar-clean .react-activity-calendar__footer,
+.github-calendar-clean [data-testid="calendar-footer"] {
+  display: none !important;
+}
+.github-calendar-clean article,
+.github-calendar-clean > div,
+.github-calendar-clean svg {
+  margin: 0 auto !important;
+  display: block;
+}

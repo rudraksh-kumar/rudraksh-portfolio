@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #8b5cf6;
+  --color-background: #0a0a0a;
+  --color-surface: #171717;
+  --color-surfaceHover: #262626;
+
+  --font-heading: "Cabinet Grotesk", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-background dark:text-gray-200 font-sans antialiased overflow-x-hidden transition-colors duration-300;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* Offsets sticky header overlay */
+}
+
+/* Helper to hide scrollbars on mobile swipe widgets */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9; /* slate-100 */
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* slate-300 */
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* slate-400 */
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* GitHub Calendar Clean Mode */
+.github-calendar-clean footer,
+.github-calendar-clean .react-activity-calendar__footer,
+.github-calendar-clean [data-testid="calendar-footer"] {
+  display: none !important;
+}
+.github-calendar-clean article,
+.github-calendar-clean > div,
+.github-calendar-clean svg {
+  margin: 0 auto !important;
+  display: block;
+}

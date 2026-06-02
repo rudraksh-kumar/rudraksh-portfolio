@@ -1,0 +1,100 @@
+{
+  "personal": {
+    "name": "Rudraksh Kumar",
+    "email": "rudrakshkumar9119@gmail.com",
+    "phone": "+91 8302649530",
+    "github": "github.com/rudraksh-kumar",
+    "linkedin": "linkedin.com/in/rudraksh-565501285",
+    "location": "BITS Pilani, Goa Campus / Kota, Rajasthan"
+  },
+  "pitch": {
+    "primary": "I am a Math & Computing undergraduate with a strong foundation in problem-solving and algorithms. I am a passionate continuous learner actively exploring the world of full-stack development, driven by a curiosity to build scalable, efficient, and user-friendly applications.",
+    "phrases": [
+      "Aspiring Software Engineer",
+      "Algorithmic Problem Solver",
+      "Full-Stack Learner",
+      "Photography Enthusiast"
+    ]
+  },
+  "education": [
+    {
+      "level": "Undergraduate",
+      "institution": "BITS Pilani, KK Birla Goa Campus",
+      "degree": "B.E. Mathematics and Computing",
+      "gpa": "8.79",
+      "expectedGraduation": "Aug 2028",
+      "coursework": ["Data Structures and Algorithms", "Object-Oriented Programming", "Computer Programming", "Probability and Statistics", "Discrete Mathematics", "Scientific Computing"]
+    },
+    {
+      "level": "Class XII",
+      "institution": "Maheshwari Public School, Kota",
+      "score": "93.4%",
+      "year": "2024"
+    },
+    {
+      "level": "Class X",
+      "institution": "St. Paul's Sr. Sec. School, Kota",
+      "score": "98.4%",
+      "year": "2022"
+    }
+  ],
+  "skills": {
+    "languages": ["C", "C++", "Python", "Java", "SQL", "JavaScript", "HTML", "CSS", "MATLAB"],
+    "frontend": ["React"],
+    "coreConcepts": ["Data Structures", "Algorithms", "Object-Oriented Programming (OOP)"],
+    "tools": ["Git", "GitHub", "VS Code", "Lightroom", "Photoshop", "Premiere Pro"],
+    "competitiveProgramming": "Strong problem-solving skills on platforms like Codeforces and LeetCode"
+  },
+  "projects": [
+    {
+      "name": "Competitive Programming Tracker",
+      "status": "Work in Progress",
+      "description": "A full-stack application to track user performance across Codeforces and LeetCode. Implementing features like an activity calendar, performance insights, and recommendations focused on improving learning outcomes using data-driven feedback.",
+      "techStack": ["React (Frontend)", "Node.js/Express (Backend)", "Third-party APIs"]
+    },
+    {
+      "name": "Personal Finance Management System",
+      "status": "Completed",
+      "description": "Built a finance management system using Object-Oriented Programming to manage income, expenses, and savings. Includes a custom tax calculator module based on income slabs for accurate financial insights. Designed with modular, reusable components in a team environment.",
+      "techStack": ["C++", "OOP", "Data Structures"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Scientific Computing Lab Certification",
+      "company": "College Faculty (Professor P Danumjaya Palla)",
+      "date": "July 2025",
+      "description": "Completed an intensive 3-day certified workshop on Scientific Computing in MATLAB under the direct guidance of college faculty. Gained detailed, hands-on experience in applying MATLAB for numerical methods and computational problem-solving."
+    },
+    {
+      "role": "Core Team Member",
+      "company": "Department of Photography at BITS Pilani, Goa",
+      "date": "Aug 2024 - Present",
+      "description": "Covered major college events through photography and videography for official media releases. Collaborated with team members to execute large-scale event shoots and enhanced visual storytelling workflows using professional tools."
+    }
+  ],
+  "personality": {
+    "hobbies": "When I'm not coding or studying, you will usually find me behind a camera lens—I am deeply passionate about photography and videography. I love listening to music and cherish spending quality time with my loved ones.",
+    "funFact": "I wouldn't call myself a serial binge-watcher, but I definitely have a 'completionist' mindset: if I actually start a TV show, I am finishing it as fast as humanly possible."
+  },
+  "aiInstructions": {
+    "tone": "Humble, eager to learn, professional but approachable. Do not pretend to be a senior developer; emphasize a strong foundation in math, logic, and problem-solving. Answer in the third person when appropriate.",
+    "targetRoles": "Actively seeking Software Engineering Internships, Junior Full-Stack Developer roles, or Backend roles.",
+    "handlingWeaknesses": "If asked about weaknesses, say: 'Since Rudraksh is still an undergraduate, he is currently building his experience with complex backend deployments and cloud infrastructure, but he is actively learning Node.js and modern web frameworks to bridge that gap.'",
+    "handlingContact": "If asked how to hire or interview Rudraksh, say: 'The best way to reach Rudraksh is directly via email at rudrakshkumar9119@gmail.com or through his LinkedIn profile!'"
+  },
+  "inferredTraits": {
+    "aiUsage": "Rudraksh leverages AI as a powerful accelerator for learning and a productivity tool for software development. He actively explores AI-assisted workflows while ensuring he continues building strong, fundamental engineering and problem-solving skills independently.",
+    "learningStyle": "Rudraksh is a self-driven, continuous learner with a growth mindset. He enjoys breaking down complex systems, actively teaching himself modern development frameworks, and brings a 'completionist' mindset to everything he starts.",
+    "strengths": [
+      "Analytical problem-solving rooted in Mathematics & Computing.",
+      "Self-driven continuous learning of new frameworks.",
+      "Commitment and high-quality completion of projects.",
+      "Adaptability to full-stack and backend technologies."
+    ],
+    "whatMakesHimDifferent": "Rudraksh's unique edge comes from combining a rigorous Mathematics & Computing background at BITS Pilani with a curiosity-driven approach to self-taught full-stack engineering. He bridges theoretical DSA problem-solving with practical AI-assisted development, while maintaining a creative perspective through his passion for photography.",
+    "motivation": "He is driven by a deep curiosity to understand how complex systems work and a desire to build scalable, efficient applications that solve real problems.",
+    "threeWords": "Curious, Analytical, Ambitious.",
+    "typeOfEngineer": "A product-minded, full-stack engineer with a strong foundation in backend logic and algorithms."
+  }
+}
