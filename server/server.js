@@ -632,7 +632,13 @@ app.post('/api/contact', async (req, res) => {
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     };
 
-    await transporter.sendMail(mailOptions);
+    // Send the email in the background to respond to the client instantly
+    transporter.sendMail(mailOptions).then(() => {
+      console.log('Contact form email sent successfully in the background.');
+    }).catch(error => {
+      console.error('Background email sending error:', error);
+    });
+
     res.status(200).json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
     console.error('Contact Form Error:', error);
