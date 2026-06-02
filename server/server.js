@@ -518,7 +518,7 @@ ${JSON.stringify(portfolioData, null, 2)}
     // we inject the system instructions as context in a robust way via systemInstruction.
 
     const configuredModel = genAI.getGenerativeModel({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-1.5-flash',
       systemInstruction: systemPrompt,
       generationConfig: {
         temperature: 0.2 // Low temperature ensures highly consistent, non-random responses
