@@ -614,35 +614,62 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ error: 'Name, email, and message are required.' });
     }
 
-    if (!transporter) {
-      console.log('--- NEW CONTACT SUBMISSION (SIMULATED) ---');
-      console.log(`Name: ${name}`);
-      console.log(`Email: ${email}`);
-      console.log(`Message: ${message}`);
-      console.log('------------------------------------------');
-      console.log('NOTE: Email was not actually sent because EMAIL_USER and EMAIL_PASS are missing or invalid.');
-      return res.status(200).json({ success: true, message: 'Message logged locally (App Password missing)' });
+    // Check if Web3Forms access key is available (preferred HTTP API for Render free tier)
+    if (process.env.WEB3FORMS_ACCESS_KEY) {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: process.env.WEB3FORMS_ACCESS_KEY,
+          name: name,
+          email: email,
+          subject: 'New Portfolio Contact Submission',
+          message: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        return res.status(200).json({ success: true, message: 'Email sent successfully!' });
+      } else {
+        throw new Error(data.message || 'Web3Forms submission failed.');
+      }
     }
 
-    const mailOptions = {
-      from: userEmail,
-      to: 'rudrakshkumar9119@gmail.com', // Target inbox
-      replyTo: email,
-      subject: 'New Portfolio Contact Submission',
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    };
+    // Fallback to Nodemailer SMTP (if configured locally)
+    if (transporter) {
+      const mailOptions = {
+        from: userEmail,
+        to: 'rudrakshkumar9119@gmail.com', // Target inbox
+        replyTo: email,
+        subject: 'New Portfolio Contact Submission',
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      };
 
-    // Send the email in the background to respond to the client instantly
-    transporter.sendMail(mailOptions).then(() => {
-      console.log('Contact form email sent successfully in the background.');
-    }).catch(error => {
-      console.error('Background email sending error:', error);
-    });
+      // Send the email in the background to respond to the client instantly
+      transporter.sendMail(mailOptions).then(() => {
+        console.log('Contact form email sent successfully in the background.');
+      }).catch(error => {
+        console.error('Background email sending error:', error);
+      });
 
-    res.status(200).json({ success: true, message: 'Email sent successfully!' });
+      return res.status(200).json({ success: true, message: 'Email sent successfully!' });
+    }
+
+    // Default simulation fallback
+    console.log('--- NEW CONTACT SUBMISSION (SIMULATED) ---');
+    console.log(`Name: ${name}`);
+    console.log(`Email: ${email}`);
+    console.log(`Message: ${message}`);
+    console.log('------------------------------------------');
+    console.log('NOTE: Email was not sent because neither WEB3FORMS_ACCESS_KEY nor Nodemailer credentials are set.');
+    return res.status(200).json({ success: true, message: 'Message logged locally (Simulation Mode)' });
   } catch (error) {
     console.error('Contact Form Error:', error);
-    res.status(500).json({ error: 'Failed to send message. Please try again later.' });
+    res.status(500).json({ error: `Failed to send message: ${error.message || "Unknown error"}. Please try again.` });
   }
 });
 
