@@ -620,8 +620,14 @@ app.post('/api/contact', async (req, res) => {
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     };
 
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true, message: 'Email sent successfully!' });
+    // Send the email in the background to prevent blocking the response
+    transporter.sendMail(mailOptions).then(() => {
+      console.log('Contact form email sent successfully.');
+    }).catch(error => {
+      console.error('Background email sending error:', error);
+    });
+
+    res.status(200).json({ success: true, message: 'Email sending initiated successfully!' });
   } catch (error) {
     console.error('Contact Form Error:', error);
     res.status(500).json({ error: 'Failed to send message. Please try again later.' });
