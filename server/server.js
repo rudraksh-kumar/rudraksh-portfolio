@@ -30,6 +30,24 @@ try {
   console.log("Warning: Gemini API Key missing or invalid.");
 }
 
+// Initialize Nodemailer Transporter globally
+const userEmail = process.env.EMAIL_USER;
+const userPass = process.env.EMAIL_PASS;
+let transporter;
+try {
+  if (userEmail && userPass) {
+    transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: userEmail,
+        pass: userPass
+      }
+    });
+  }
+} catch (e) {
+  console.log("Warning: Nodemailer initialization failed:", e.message || e);
+}
+
 app.post('/api/chat', async (req, res) => {
   try {
     const { message, history } = req.body;
@@ -591,26 +609,15 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ error: 'Name, email, and message are required.' });
     }
 
-    const userEmail = process.env.EMAIL_USER;
-    const userPass = process.env.EMAIL_PASS;
-
-    if (!userEmail || !userPass) {
+    if (!transporter) {
       console.log('--- NEW CONTACT SUBMISSION (SIMULATED) ---');
       console.log(`Name: ${name}`);
       console.log(`Email: ${email}`);
       console.log(`Message: ${message}`);
       console.log('------------------------------------------');
-      console.log('NOTE: Email was not actually sent because EMAIL_USER and EMAIL_PASS are missing in .env');
+      console.log('NOTE: Email was not actually sent because EMAIL_USER and EMAIL_PASS are missing or invalid.');
       return res.status(200).json({ success: true, message: 'Message logged locally (App Password missing)' });
     }
-
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: userEmail,
-        pass: userPass
-      }
-    });
 
     const mailOptions = {
       from: userEmail,
@@ -620,14 +627,8 @@ app.post('/api/contact', async (req, res) => {
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     };
 
-    // Send the email in the background to prevent blocking the response
-    transporter.sendMail(mailOptions).then(() => {
-      console.log('Contact form email sent successfully.');
-    }).catch(error => {
-      console.error('Background email sending error:', error);
-    });
-
-    res.status(200).json({ success: true, message: 'Email sending initiated successfully!' });
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
     console.error('Contact Form Error:', error);
     res.status(500).json({ error: 'Failed to send message. Please try again later.' });
