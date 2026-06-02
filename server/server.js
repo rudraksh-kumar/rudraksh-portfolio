@@ -25,7 +25,7 @@ let genAI;
 let model;
 try {
   genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || 'MISSING_KEY');
-  model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
 } catch (e) {
   console.log("Warning: Gemini API Key missing or invalid.");
 }
@@ -518,7 +518,7 @@ ${JSON.stringify(portfolioData, null, 2)}
     // we inject the system instructions as context in a robust way via systemInstruction.
 
     const configuredModel = genAI.getGenerativeModel({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-flash-latest',
       systemInstruction: systemPrompt,
       generationConfig: {
         temperature: 0.2 // Low temperature ensures highly consistent, non-random responses
