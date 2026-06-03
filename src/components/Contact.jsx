@@ -24,26 +24,32 @@ const Contact = () => {
     setErrorMsg('');
 
     try {
-      const response = await fetch(`${API_URL}/api/contact`, {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '1df1e4d9-c654-47f9-9038-5626958e391c',
+          name: formData.name,
+          email: formData.email,
+          subject: 'New Portfolio Contact Submission',
+          message: formData.message
+        })
       });
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && data.success) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
         // Reset after 3 seconds
         setTimeout(() => setStatus('idle'), 3000);
       } else {
         setStatus('error');
-        setErrorMsg(data.error || 'Failed to send message.');
+        setErrorMsg(data.message || 'Failed to send message.');
       }
     } catch (err) {
       setStatus('error');
-      setErrorMsg('Failed to connect to the server. Please try again later.');
+      setErrorMsg('Failed to send message. Please check your network and try again.');
     }
   };
 
