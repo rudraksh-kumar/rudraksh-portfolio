@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Camera } from 'lucide-react';
+import { Sparkles, Camera, Github, Code2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { GitHubCalendar } from 'react-github-calendar';
 
@@ -56,8 +56,13 @@ const About = () => {
         <div className="lg:col-span-5 xl:col-span-4 flex">
           <div className="bg-white/80 dark:bg-surface/50 border border-black/5 dark:border-white/5 rounded-3xl p-5 sm:p-8 hover:border-accent/40 hover:-translate-y-0.5 md:hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 w-full flex flex-col justify-between shadow-sm dark:shadow-none">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">GitHub Activity</h3>
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-black/50 border border-black/10 dark:border-white/10 text-[10px] font-mono text-slate-700 dark:text-gray-300 w-fit">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20 shrink-0">
+                  <Github className="text-accent w-5 h-5" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">GitHub Activity</h3>
+              </div>
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 dark:bg-black/50 border border-black/10 dark:border-white/10 text-[10px] font-mono text-slate-700 dark:text-gray-300 w-fit h-fit">
                 rudraksh-kumar
               </div>
             </div>
@@ -128,7 +133,12 @@ const About = () => {
         {/* Skills Card */}
         <div className="lg:col-span-5 xl:col-span-4 flex mt-2 lg:mt-4">
           <div className="bg-white/80 dark:bg-surface/50 border border-black/5 dark:border-white/5 rounded-3xl p-5 sm:p-8 hover:border-accent/40 hover:-translate-y-0.5 md:hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 w-full flex flex-col justify-center shadow-sm dark:shadow-none">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6">Skills</h3>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20 shrink-0">
+                <Code2 className="text-accent w-5 h-5" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Skills</h3>
+            </div>
             <div className="flex flex-wrap gap-2.5">
               {['C', 'C++', 'Python', 'Java', 'JavaScript', 'HTML', 'CSS', 'MATLAB', 'React'].map((skill) => (
                 <span 
