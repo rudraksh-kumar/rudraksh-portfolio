@@ -125,8 +125,22 @@ const About = () => {
 
         </div>
 
-        {/* Empty space below GitHub Activity on Desktop */}
-        <div className="lg:col-span-5 xl:col-span-4 hidden lg:block"></div>
+        {/* Skills Card */}
+        <div className="lg:col-span-5 xl:col-span-4 flex mt-2 lg:mt-4">
+          <div className="bg-white/80 dark:bg-surface/50 border border-black/5 dark:border-white/5 rounded-3xl p-5 sm:p-8 hover:border-accent/40 hover:-translate-y-0.5 md:hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 w-full flex flex-col justify-center shadow-sm dark:shadow-none">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6">Skills</h3>
+            <div className="flex flex-wrap gap-2.5">
+              {['C', 'C++', 'Python', 'Java', 'JavaScript', 'HTML', 'CSS', 'MATLAB', 'React'].map((skill) => (
+                <span 
+                  key={skill}
+                  className="px-4 py-2 text-xs sm:text-sm font-medium rounded-full bg-slate-50 dark:bg-white/5 border border-black/10 dark:border-white/10 text-slate-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent hover:border-accent/45 dark:hover:border-accent/45 hover:shadow-[0_0_15px_rgba(139,92,246,0.15)] transition-all duration-300 cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
 
       </motion.div>
     </section>
