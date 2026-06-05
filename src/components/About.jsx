@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Camera, Github, Code2 } from 'lucide-react';
+import { Sparkles, Camera, Code2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { GitHubCalendar } from 'react-github-calendar';
 
@@ -58,7 +58,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20 shrink-0">
-                  <Github className="text-accent w-5 h-5" />
+                  <FaGithub className="text-accent w-5 h-5" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">GitHub Activity</h3>
               </div>
