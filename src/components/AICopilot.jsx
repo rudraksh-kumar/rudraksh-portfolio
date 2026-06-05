@@ -542,7 +542,7 @@ const AICopilot = () => {
                 }}
                 onKeyDown={handleKeyDown}
                 placeholder={
-                  isListening ? "Listening... Speak naturally now!" : "Ask me anything or tap Mic to speak..."
+                  isListening ? "Listening... Speak naturally now!" : "Ask or tap Mic to speak..."
                 }
                 className={`w-full bg-white dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full py-3.5 sm:py-4 pl-5 sm:pl-6 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-accent/50 resize-none overflow-hidden transition-all text-xs sm:text-sm ${
                   speechSupport ? 'pr-24 sm:pr-28' : 'pr-12 sm:pr-14'

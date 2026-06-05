@@ -56,7 +56,7 @@
       "name": "Personal Finance Management System",
       "status": "Completed",
       "description": "Built a finance management system using Object-Oriented Programming to manage income, expenses, and savings. Includes a custom tax calculator module based on income slabs for accurate financial insights. Designed with modular, reusable components in a team environment.",
-      "techStack": ["C++", "OOP", "Data Structures"]
+      "techStack": ["Java", "OOP", "Data Structures"]
     }
   ],
   "experience": [

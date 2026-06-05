@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, Activity, Calculator, X } from 'lucide-react';
+import { ArrowUpRight, Activity, Calculator, X } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 const projects = [
@@ -27,19 +27,19 @@ const projects = [
     title: "Personal Finance Management",
     status: "Completed",
     description: "An OOP-based system managing income, expenses, and savings with a custom modular tax calculator.",
-    stack: ["C++", "OOP", "Data Structures"],
+    stack: ["Java", "OOP", "Data Structures"],
     icon: <Calculator className="w-6 h-6 text-blue-500" />,
     color: "from-blue-500/20 to-cyan-500/20",
     extendedDetails: {
       problem: "Traditional spreadsheet models are tedious to maintain, prone to syntax errors, and fail to calculate complex multi-bracket progressive taxes dynamically in real-time.",
       features: [
-        "Strict Object-Oriented C++ model using structural classes (Transaction, Category, User).",
+        "Strict Object-Oriented Java model using structural classes (Transaction, Category, User).",
         "Interactive console/file logging framework keeping transaction histories secure.",
         "Modular progressive tax bracket matching module based on dynamic income configurations.",
         "High-performance memory allocation structures executing instantly without overhead."
       ],
       challenges: "Designing robust file stream persistence that gracefully handles corrupt records. Resolved using modular parsing checks and robust try/catch exception pipelines.",
-      architecture: "Console-bound compiled standard OOP executable built under strict C++17 standards."
+      architecture: "Console-bound compiled standard OOP executable built under strict Java standards."
     }
   }
 ];
@@ -234,14 +234,6 @@ const Projects = () => {
                     className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white text-xs font-medium flex items-center gap-1.5 transition-all"
                   >
                     <FaGithub className="w-4 h-4" /> Github
-                  </a>
-                  <a 
-                    href="https://github.com/rudraksh-kumar" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-700 dark:text-white text-xs font-medium flex items-center gap-1.5 transition-all"
-                  >
-                    <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
                 </div>
 
