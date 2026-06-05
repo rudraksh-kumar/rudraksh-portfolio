@@ -106,7 +106,7 @@ const Hero = () => {
               Let's Connect <MessageSquare className="w-3.5 h-3.5" />
             </a>
             <a 
-              href="/resume.pdf"
+              href="/Rudraksh_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-transparent border border-black/20 dark:border-white/20 text-slate-600 dark:text-gray-300 rounded-xl font-medium text-xs flex items-center justify-center gap-2 hover:text-slate-900 dark:hover:text-white hover:border-accent/50 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/5 transition-all active:scale-[0.98] w-full sm:w-auto"
